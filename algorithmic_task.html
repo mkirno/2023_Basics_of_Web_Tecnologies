@@ -2,60 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Решение алгоритмической задачи</title>
-    <script>
-        function checkNumber() {
-            var number = parseFloat(document.getElementById("inputNumber").value);
-            var resultText = '';
-
-            if (isNaN(number)) {
-                resultText = "Введите корректное число!";
-            } else if (number > 0) {
-                resultText = "Введенное число положительное.";
-            } else if (number < 0) {
-                resultText = "Введенное число отрицательное.";
-            } else {
-                resultText = "Введенное число равно нулю.";
-            }
-
-            document.getElementById("result").innerHTML = resultText;
-            // Устанавливаем значение в скрытое поле формы
-            document.getElementById("resultValue").value = resultText;
-        }
-
-        // Функция для отправки формы
-        function sendResult() {
-            // Проверяем, есть ли уже результат
-            var resultValue = document.getElementById("resultValue").value;
-            if (resultValue === '') {
-                alert('Сначала проверьте число!');
-            } else {
-                // Отправляем форму
-                document.getElementById("resultForm").submit();
-            }
-        }
-    </script>
 </head>
 <body>
-    <h1>Задача 1002</h1>
-    <p>Дано вещественное число. Определить, какое это число: положительное, отрицательное, ноль.</p>
-    <p><strong>Имя:</strong> Матвей Кирноценский</p>
-    <p><strong>Порядковый номер студента:</strong> 169</p>
 
-    <!-- Форма для проверки числа -->
-    <label for="inputNumber">Введите вещественное число:</label>
-    <input type="text" id="inputNumber" placeholder="Введите число">
-    <button type="button" onclick="checkNumber()">Проверить</button>
-    <p id="result"></p>
+<table border="1">
+    <tr>
+        <td> <h3 align="center">Решение алгоритмической задачи</h3> </td>
+        <form action="" id="UserEnter" name="UserEnter" target="_self">
+        <tr>
+        <td>
+            <p>Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?</p>
+            <p>Условие: <input id="условие" name="task" type="text" value="Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?"</p>
+            <p>S: <input id="S" name="S" type="number" value="0"></p>
+            <p>R: <input id="R" name="R" type="number" value="0"></p>
+            <p>K: <input id="K" name="K" type="number" value="5"></p>
 
-    <!-- Форма для отправки результата на сервер -->
-    <form id="resultForm" action="https://www.bing.com/search?" method="POST">
-        ‹input name="q" value="search">
+            <p>Результат: <input name="result" value="не определён"></p>
+        
+            <p>Действие: <input id="send" type="submit" value="Отправить"></p>
 
-        <input type="hidden" id="resultValue" name="result" value="">
-        <!-- Кнопка для отправки формы, которая будет вызывать функцию sendResult() -->
-        <button type="button" onclick="sendResult()">Отправить результат на сервер</button>
-    </form>
+        </td>
+
+        </tr>
+        </form>
+
+         <p id="result">Результаты вычислений: </p>
+
+ <script src="algorythm.js"></script>
+
+</table>
 </body>
 </html>
