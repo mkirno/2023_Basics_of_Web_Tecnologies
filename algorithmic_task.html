@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение алгоритмической задачи</title>
+    <script>
+        function checkNumber() {
+            var number = parseFloat(document.getElementById("inputNumber").value);
+            var result = document.getElementById("result");
+            
+            if (isNaN(number)) {
+                result.innerHTML = "Введите корректное число!";
+            } else if (number > 0) {
+                result.innerHTML = "Введенное число положительное.";
+            } else if (number < 0) {
+                result.innerHTML = "Введенное число отрицательное.";
+            } else {
+                result.innerHTML = "Введенное число равно нулю.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Задача 1002</h1>
+    <p>Дано вещественное число. Определить, какое это число: положительное, отрицательное, ноль.</p>
+    <p><strong>Имя:</strong> Матвей Кирноценский</p>
+    <p><strong>Порядковый номер студента:</strong> 169</p>
+    <label for="inputNumber">Введите вещественное число:</label>
+    <input type="text" id="inputNumber" placeholder="Введите число">
+    <button onclick="checkNumber()">Проверить</button>
+    <p id="result"></p>
+</body>
+</html>
