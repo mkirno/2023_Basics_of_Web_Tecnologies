@@ -7,16 +7,32 @@
     <script>
         function checkNumber() {
             var number = parseFloat(document.getElementById("inputNumber").value);
-            var result = document.getElementById("result");
-            
+            var resultText = '';
+
             if (isNaN(number)) {
-                result.innerHTML = "Введите корректное число!";
+                resultText = "Введите корректное число!";
             } else if (number > 0) {
-                result.innerHTML = "Введенное число положительное.";
+                resultText = "Введенное число положительное.";
             } else if (number < 0) {
-                result.innerHTML = "Введенное число отрицательное.";
+                resultText = "Введенное число отрицательное.";
             } else {
-                result.innerHTML = "Введенное число равно нулю.";
+                resultText = "Введенное число равно нулю.";
+            }
+
+            document.getElementById("result").innerHTML = resultText;
+            // Устанавливаем значение в скрытое поле формы
+            document.getElementById("resultValue").value = resultText;
+        }
+
+        // Функция для отправки формы
+        function sendResult() {
+            // Проверяем, есть ли уже результат
+            var resultValue = document.getElementById("resultValue").value;
+            if (resultValue === '') {
+                alert('Сначала проверьте число!');
+            } else {
+                // Отправляем форму
+                document.getElementById("resultForm").submit();
             }
         }
     </script>
@@ -26,9 +42,18 @@
     <p>Дано вещественное число. Определить, какое это число: положительное, отрицательное, ноль.</p>
     <p><strong>Имя:</strong> Матвей Кирноценский</p>
     <p><strong>Порядковый номер студента:</strong> 169</p>
+
+    <!-- Форма для проверки числа -->
     <label for="inputNumber">Введите вещественное число:</label>
     <input type="text" id="inputNumber" placeholder="Введите число">
-    <button onclick="checkNumber()">Проверить</button>
+    <button type="button" onclick="checkNumber()">Проверить</button>
     <p id="result"></p>
+
+    <!-- Форма для отправки результата на сервер -->
+    <form id="resultForm" action="https://www.bing.com/search?" method="POST">
+        <input type="hidden" id="resultValue" name="result" value="">
+        <!-- Кнопка для отправки формы, которая будет вызывать функцию sendResult() -->
+        <button type="button" onclick="sendResult()">Отправить результат на сервер</button>
+    </form>
 </body>
 </html>
