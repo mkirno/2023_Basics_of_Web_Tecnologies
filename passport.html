@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        body {
+            background-image: url(https://photoshopy.net/uploads/posts/2009-11/1258036505_pic.jpg);
+            background-position: center-bottom;
+            background-repeat: no-repeat;
+        }
+        .block1 {
+            margin-left: 100px;
+            margin-top: 70px;
+            font: bold 90% serif;
+        }
+        .block2 {
+            margin-left: 100px;
+            margin-top: 30px;
+        }
+        .block3 {
+            margin-left: 250px;
+            margin-top: -17px;
+        }
+        .block4 {
+            margin-left: 218px;
+            margin-top: 185px;
+            font: bold 100% serif;
+        }
+        .block5 {
+            margin-left: 225px;
+            margin-top: 29px;
+        }
+        .block6 {
+            margin-left: 210px;
+            margin-top: 4px;
+        }
+        .block7 {
+            margin-left: 174px;
+            margin-top: 4px;
+        }
+        .block8 {
+            margin-left: 260px;
+            margin-top: -18px;
+        }
+        .block9 {
+            margin-left: 202px;
+            margin-top: 3px;
+            width: 150px;
+        }
+        .photo {
+            position: absolute;
+            top: 187px;
+            left: 18px;
+            width: 107px;
+            height: 137px;
+        }
+        .button {
+            position: absolute;
+            right: 100px; /* Adjust the value as needed to move the buttons horizontally */
+            top: 100px;
+        }
+        .button_second {
+            position: absolute;
+            right: 600px;
+            top: 100px;
+        }
+        .button_third {
+            position: absolute;
+            right: 450px;
+            top: 100px;
+        }
+
+       
+        .link{
+            position: absolute;
+
+            top: 400px;
+            left: 100px;
+            margin-top: 400px;
+            text-align: center;
+        }
+        .link1{
+            position: absolute;
+
+            top: 450px;
+            left: 100px;
+            margin-top: 400px;
+            text-align: center;
+        }
+        .link2{
+            position: absolute;
+
+            top: 500px;
+            left: 100px;
+            margin-top: 400px;
+            text-align: center;
+            width: 500px;
+        }
+        
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var originalValues = {
+                block1: "УФМС РОССИИ ПО ГОР. МОСКВЕ",
+                block4: "Кирноценский",
+                block5: "Матвей",
+                block6: "Дмитриевич",
+                block9: "Москва"
+            };
+
+            document.getElementById("english").addEventListener("click", function() {
+                // Define the mapping from Cyrillic to Latin characters
+                var cyrillicToLatinMap = {
+                    "У": "U", "Ф": "F", "М": "M", "С": "S", " ": " ",
+                    "Р": "R", "О": "O", "И": "I", "Е": "E", "Г": "G",
+                    "К": "K", "В": "V", "А": "A"
+                };
+
+                // Update block values with Latin characters
+                document.querySelector(".block1").textContent = "UFMS ROSSII PO GOR. MOSKVE";
+                document.querySelector(".block4").textContent = "Kirnocenskij";
+                document.querySelector(".block5").textContent = "Matvej";
+                document.querySelector(".block6").textContent = "Dmitrievich";
+                document.querySelector(".block9").textContent = "Moskva";
+            });
+
+            document.getElementById("russia").addEventListener("click", function() {
+                // Restore original values
+                document.querySelector(".block1").textContent = originalValues.block1;
+                document.querySelector(".block4").textContent = originalValues.block4;
+                document.querySelector(".block5").textContent = originalValues.block5;
+                document.querySelector(".block6").textContent = originalValues.block6;
+                document.querySelector(".block9").textContent = originalValues.block9;
+            });
+        });
+    </script>
+</head>
+</head>
+</head>
+<body>
+    <div class="block1">УФМС РОССИИ ПО ГОР. МОСКВЕ</div>
+    <div class="block2"> 11.11.1111</div>
+    <div class="block3"> 222-222</div>
+    <div class="block4"> Кирноценский</div>
+    <div class="block5"> Матвей</div>
+    <div class="block6"> Дмитриевич</div>
+    <div class="block7"> муж. </div>
+    <div class="block8"> 03.09.2004 </div>
+    <div class="block9"> Москва</div>
+    
+    <button class="button" id="russia" >
+        Поменять значения в паспорте на русский язык
+    </button>
+
+    <button class="button button_second" id="english">
+        Поменять значения в паспорте на латиницу
+    </button>
+
+    <button class="button button_third button-active" id="clear">
+        Убрать значения
+    </button>
+
+
+</body>
+</html>
