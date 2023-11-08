@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Информационный Сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .content {
+            margin: 20px;
+        }
+        .graphic-link {
+            position: absolute;
+            top: 10px;
+            right: 300px; 
+            width: 10px;
+            height: 10px;
+        }
+        .current-section {
+            background-color: rgb(183, 0, 0);
+        }
+        
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navLinks = document.querySelectorAll("nav a");
+            var sections = document.querySelectorAll("h2");
+
+            function highlightCurrentSection() {
+                var scrollPosition = window.scrollY;
+                sections.forEach(function(section) {
+                    var sectionTop = section.offsetTop;
+                    var sectionBottom = sectionTop + section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        navLinks.forEach(function(link) {
+                            link.classList.remove("current-section");
+                        });
+                        var correspondingLink = document.querySelector('a[href="#' + section.id + '"]');
+                        correspondingLink.classList.add("current-section");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", highlightCurrentSection);
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#description">Описание сайта</a>
+        <a href="https://www.example.com" target="_blank">Внешний сайт</a>
+    </nav>
+    <div class="content">
+        <h1 id="home">Добро пожаловать на наш сайт!</h1>
+        <p>Это главная страница нашего сайта. Здесь вы найдете всю необходимую информацию о нас и наших услугах.</p>
+        <h2 id="about">О нас</h2>
+        <p>Мы - команда профессионалов, специализирующихся на создании качественных веб-сайтов.</p>
+        <h2 id="services">Наши услуги</h2>
+        <ul>
+            <li>Разработка веб-сайтов</li>
+            <li>Дизайн и верстка</li>
+            <li>Оптимизация для поисковых систем</li>
+            <li>CRM для улучшения работы салона красоты</li>
+            <li>Фотосалон</li>
+            <li>Выездной нотариус</li>
+            <li>Услуги няни</li>
+            <li>Учебный центр с курсами по маникюру</li>
+            <li>Клининговые услуги</li>
+            <li>Ритуальные услуги</li>
+            <li>Сервисный центр по ремонту электроники и бытовой техники</li>
+            <li>Услуги визажиста</li>
+            <li>Организатор мероприятий</li>
+            <li>Пошив одежды на заказ</li>
+            <li>Стоматологическая клиника</li>
+            <li>Мойка автомобилий</li>
+            <li>Доставка еды в офисы</li>
+            <li>Игропрактика</li>
+            <li>Аэродизайн</li>
+            <li>Проведение городских квестов</li>
+            <li>Кейтеринг</li>
+            <li>Печать на кружках и футболках</li>
+            <li>Бытовые услуги</li>
+            <li>Оптимизация для поисковых систем</li>
+            <li>Разработка веб-сайтов</li>
+            <li>Дизайн и верстка</li>
+            <li>Оптимизация для поисковых систем</li>
+            <li>Разработка веб-сайтов</li>
+            <li>Дизайн и верстка</li>
+            <li>Оптимизация для поисковых систем</li>
+            <li>Клининговые услуги</li>
+            <li>Ритуальные услуги</li>
+            <li>Сервисный центр по ремонту электроники и бытовой техники</li>
+            <li>Услуги визажиста</li>
+            <li>Организатор мероприятий</li>
+            <li>Пошив одежды на заказ</li>
+            <li>Стоматологическая клиника</li>
+            <li>Мойка автомобилий</li>
+
+        </ul>
+        <h2 id="description">Описание сайта</h2>
+        <p>Здесь вы найдете подробное описание нашего сайта и всю информацию, которая может вас заинтересовать.</p>
+    </div>
+    <a href="https://dzen.ru/video/watch/621a1597f8bf1248f2069abb?mt_link_id=kikkq1&utm_source=yandex&utm_medium=cpc&utm_campaign=SEARCH_Recipes&utm_content=pid_43754837365_cid_76500379_gid_5151777043_aid_13681818522_src_search_none&yclid=5794140964934909951" target="_blank" class="graphic-link">
+        <img src="https://github.com/vmarshirov/g06u28/blob/main/images/1_2.png?raw=true" alt="Графическая гиперссылка">
+    </a>
+</body>
+</html>

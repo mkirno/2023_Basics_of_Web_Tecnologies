@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Информационный Сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .graphic-link {
+            position: absolute;
+            top: 10px;
+            right: 300px;
+            width: 10px;
+            height: 10px;
+        }
+
+        .thumbnail-link {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-image: url('https://via.placeholder.com/1200x800');
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: none;
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#section1">Раздел 1</a>
+        <a href="#section2">Раздел 2</a>
+        <a href="#home">К началу</a>
+    </nav>
+    <div class="contact-form">
+        <h3>Форма для отправки контактных данных</h3>
+        <form id="contactForm">
+            <label for="firstName">Фамилия:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+    
+            <label for="lastName">Имя:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+    
+            <label for="mobile">Мобильный телефон:</label>
+            <input type="tel" id="mobile" name="mobile" required><br>
+    
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" name="email" required><br>
+    
+            <label for="date">Дата отправки сообщения:</label>
+            <input type="date" id="date" name="date" required><br>
+    
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+    <div class="feedback-form">
+        <h3>Форма обратной связи</h3>
+        <form id="feedbackForm">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+    
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" required><br>
+    
+            <label>Пол:</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Мужской</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Женский</label><br>
+    
+            <label for="subscribe">Подписаться на рассылку:</label>
+            <input type="checkbox" id="subscribe" name="subscribe"><br>
+    
+            <label for="dob">Дата рождения:</label>
+            <input type="date" id="dob" name="dob" required><br>
+    
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required><br>
+    
+            <input type="hidden" id="secretCode" name="secretCode" value="12345">
+    
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+    <div class="content">
+        <h1 id="home">Добро пожаловать на наш сайт!</h1>
+        <h2 id="section1">Раздел 1</h2>
+        <h3>Список нумерованный:</h3>
+        <ol>
+            <li>Пункт 1</li>
+            <li>Пункт 2</li>
+            <li>Пункт 3</li>
+        </ol>
+        <h3>Список не нумерованный:</h3>
+        <ul>
+            <li>Пункт A</li>
+            <li>Пункт B</li>
+            <li>Пункт C</li>
+        </ul>
+        <h3>Список вложенный:</h3>
+        <ul>
+            <li>Главный пункт
+                <ul>
+                    <li>Вложенный пункт 1</li>
+                    <li>Вложенный пункт 2</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Изображение объекта с пояснением:</h3>
+        <img src="https://via.placeholder.com/600x400" alt="Изображение объекта">
+        <p>Здесь вы видите объект, о котором идет речь.</p>
+        <h2 id="section2">Раздел 2</h2>
+        <h3>Таблица с изображением:</h3>
+        <table style="background-image: url(https://www.fonstola.ru/images/201707/fonstola.ru_267133.jpg); background-size: cover;">
+            <tr>
+                <th>Ячейка 1</th>
+                <th>Ячейка 2</th>
+            </tr>
+            <tr>
+                <td>Текст в ячейке 1</td>
+                <td><img src="https://via.placeholder.com/200" alt="Изображение в ячейке"></td>
+            </tr>
+            <tr>
+                <td>Гиперссылка</td>
+                <td><a href="https://www.example.com">Посетите наш сайт</a></td>
+            </tr>
+        </table>
+    </div>
+    <a href="https://via.placeholder.com/600x400" target="_blank" class="graphic-link">
+        <img class="thumbnail-link" src="https://via.placeholder.com/100" alt="Миниатюра изображения">
+    </a>
+
+    <!-- Попап с изображением большого размера -->
+    <div class="popup-overlay"></div>
+    <div class="popup-image">
+        <img src="https://via.placeholder.com/600x400" alt="Изображение большого размера">
+    </div>
+
+    <a href="#home" class="back-to-top">К началу</a>
+
+    <script>
+        // JavaScript для отображения попапа с изображением
+        const thumbnailLink = document.querySelector('.graphic-link');
+        const popupOverlay = document.querySelector('.popup-overlay');
+        const popupImage = document.querySelector('.popup-image');
+
+        thumbnailLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            popupOverlay.style.display = 'block';
+            popupImage.style.display = 'block';
+        });
+
+        popupOverlay.addEventListener('click', function() {
+            popupOverlay.style.display = 'none';
+            popupImage.style.display = 'none';
+        });
+
+        // JavaScript для кнопки "К началу"
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+
+</html>
