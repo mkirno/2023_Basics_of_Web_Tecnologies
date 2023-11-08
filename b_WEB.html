@@ -85,7 +85,7 @@
     </nav>
     <div class="contact-form">
         <h3>Форма для отправки контактных данных</h3>
-        <form id="contactForm">
+        <form id="contactForm" action="https://www.bing.com/search?" method="POST">
             <label for="firstName">Фамилия:</label>
             <input type="text" id="firstName" name="firstName" required><br>
     
@@ -106,7 +106,7 @@
     </div>
     <div class="feedback-form">
         <h3>Форма обратной связи</h3>
-        <form id="feedbackForm">
+        <form id="feedbackForm" action="https://www.bing.com/search?" method="POST">
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required><br>
     
@@ -129,7 +129,7 @@
             <input type="password" id="password" name="password" required><br>
     
             <input type="hidden" id="secretCode" name="secretCode" value="12345">
-    
+            
             <button type="submit">Отправить</button>
         </form>
     </div>
