@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой Информационный Сайт</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -74,6 +75,25 @@
         .back-to-top.show {
             display: block;
         }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            z-index: 999;
+        }
+
+        .popup-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
     </style>
 </head>
 
@@ -136,29 +156,29 @@
     <div class="content">
         <h1 id="home">Добро пожаловать на наш сайт!</h1>
         <h2 id="section1">Раздел 1</h2>
-        <h3>Список нумерованный:</h3>
+        <h3>Наши сотрудники:</h3>
         <ol>
-            <li>Пункт 1</li>
-            <li>Пункт 2</li>
-            <li>Пункт 3</li>
+            <li>Матвей</li>
+            <li>Илья</li>
+            <li>Аня</li>
         </ol>
-        <h3>Список не нумерованный:</h3>
+        <h3>Пишем код в:</h3>
         <ul>
-            <li>Пункт A</li>
-            <li>Пункт B</li>
-            <li>Пункт C</li>
+            <li>VsCode</li>
+            <li>PyCharm</li>
+            <li>Notebook</li>
         </ul>
-        <h3>Список вложенный:</h3>
+        <h3>Наши контакты:</h3>
         <ul>
-            <li>Главный пункт
+            <li>Директоре
                 <ul>
-                    <li>Вложенный пункт 1</li>
-                    <li>Вложенный пункт 2</li>
+                    <li>Матвей:9153092044</li>
+                    <li>Антон:8005553535</li>
                 </ul>
             </li>
         </ul>
         <h3>Изображение объекта с пояснением:</h3>
-        <img src="https://via.placeholder.com/600x400" alt="Изображение объекта">
+        <img src="https://goods-photos.static1-sima-land.com/items/484484/0/1600.jpg?v=1612559972" alt="Описание изображения" width="600" height="400">
         <p>Здесь вы видите объект, о котором идет речь.</p>
         <h2 id="section2">Раздел 2</h2>
         <h3>Таблица с изображением:</h3>
@@ -220,6 +240,22 @@
         backToTopButton.addEventListener('click', () => {
             window.scrollTo(0, 0);
         });
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const thumbnailLink = document.querySelector('.thumbnail-link');
+    const popupOverlay = document.querySelector('.popup-overlay');
+    const popupImage = document.querySelector('.popup-image');
+
+    thumbnailLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        popupOverlay.style.display = 'block';
+        popupImage.style.display = 'block';
+    });
+
+    popupOverlay.addEventListener('click', function() {
+        popupOverlay.style.display = 'none';
+        popupImage.style.display = 'none';
+    });
+});
     </script>
 </body>
 

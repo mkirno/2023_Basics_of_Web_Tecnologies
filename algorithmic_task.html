@@ -51,6 +51,8 @@
 
     <!-- Форма для отправки результата на сервер -->
     <form id="resultForm" action="https://www.bing.com/search?" method="POST">
+        ‹input name="q" value="search">
+
         <input type="hidden" id="resultValue" name="result" value="">
         <!-- Кнопка для отправки формы, которая будет вызывать функцию sendResult() -->
         <button type="button" onclick="sendResult()">Отправить результат на сервер</button>
