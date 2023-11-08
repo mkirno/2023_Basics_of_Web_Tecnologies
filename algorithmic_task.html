@@ -9,28 +9,43 @@
 <table border="1">
     <tr>
         <td> <h3 align="center">Решение алгоритмической задачи</h3> </td>
-        <form action="" id="UserEnter" name="UserEnter" target="_self">
-        <tr>
+    </tr>
+    <tr>
         <td>
-            <p>Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?</p>
-            <p>Условие: <input id="условие" name="task" type="text" value="Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?"</p>
-            <p>S: <input id="S" name="S" type="number" value="0"></p>
-            <p>R: <input id="R" name="R" type="number" value="0"></p>
-            <p>K: <input id="K" name="K" type="number" value="5"></p>
-
-            <p>Результат: <input name="result" value="не определён"></p>
-        
-            <p>Действие: <input id="send" type="submit" value="Отправить"></p>
-
+            <form action="" id="UserEnter" name="UserEnter" target="_self">
+                <p>Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?</p>
+                <p>S: <input id="S" name="S" type="number" value="0"></p>
+                <p>R: <input id="R" name="R" type="number" value="0"></p>
+                <p>K: <input id="K" name="K" type="number" value="5"></p>
+                <p>Результат: <input id="resultInput" name="result" value="не определён"></p>
+                <p>Действие: <input id="send" type="button" value="Отправить"></p>
+            </form>
+            <p id="resultText">Результаты вычислений: </p>
         </td>
-
-        </tr>
-        </form>
-
-         <p id="result">Результаты вычислений: </p>
-
- <script src="algorythm.js"></script>
-
+    </tr>
 </table>
+
+<script>
+function verify() {
+    let S = parseInt(document.getElementById('S').value);
+    let R = parseInt(document.getElementById('R').value);
+    let K = parseInt(document.getElementById('K').value);
+    let result;
+    
+    if (Math.sqrt(S) - 2 * (R + K) >= 0) {
+        result = "Можно разместить сцену в зале.";
+    } else {
+        result = "Невозможно разместить сцену в зале с заданными параметрами.";
+    }
+    
+    document.getElementById("resultText").innerText = "Результаты вычислений: " + result;
+    document.getElementById("resultInput").value = result;
+}
+
+document.getElementById("S").addEventListener('input', verify);
+document.getElementById("R").addEventListener('input', verify);
+document.getElementById("K").addEventListener('input', verify);
+</script>
+
 </body>
 </html>
