@@ -121,5 +121,39 @@
     <a href="https://dzen.ru/video/watch/621a1597f8bf1248f2069abb?mt_link_id=kikkq1&utm_source=yandex&utm_medium=cpc&utm_campaign=SEARCH_Recipes&utm_content=pid_43754837365_cid_76500379_gid_5151777043_aid_13681818522_src_search_none&yclid=5794140964934909951" target="_blank" class="graphic-link">
         <img src="https://github.com/vmarshirov/g06u28/blob/main/images/1_2.png?raw=true" alt="Графическая гиперссылка">
     </a>
-</body>
-</html>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navLinks = document.querySelectorAll("nav a");
+            var sections = document.querySelectorAll("h2");
+
+            function highlightCurrentSection() {
+                var scrollPosition = window.scrollY;
+                sections.forEach(function(section) {
+                    var sectionTop = section.offsetTop;
+                    var sectionBottom = sectionTop + section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        navLinks.forEach(function(link) {
+                            link.classList.remove("current-section");
+                        });
+                        var correspondingLink = document.querySelector('a[href="#' + section.id + '"]');
+                        correspondingLink.classList.add("current-section");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", highlightCurrentSection);
+
+            // Получаем ссылку на начальную страницу (главную страницу)
+            var homeLink = document.querySelector('a[href="#home"]');
+
+            // Обработчик события клика на ссылке
+            homeLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Перенаправляем пользователя на начальную страницу
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+
+    </body>
+    </html>
