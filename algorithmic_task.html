@@ -9,21 +9,31 @@
 <table border="1">
     <tr>
         <td> <h3 align="center">Решение алгоритмической задачи</h3> </td>
-    </tr>
-    <tr>
+        <form action="" id="UserEnter" name="UserEnter" target="_self">
+        <tr>
         <td>
-            <form action="" id="UserEnter" name="UserEnter" target="_self">
-                <p>Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?</p>
-                <p>S: <input id="S" name="S" type="number" value="0"></p>
-                <p>R: <input id="R" name="R" type="number" value="0"></p>
-                <p>K: <input id="K" name="K" type="number" value="5"></p>
-                <p>Результат: <input id="resultInput" name="result" value="не определён"></p>
-                <p>Действие: <input id="send" type="button" value="Отправить"></p>
-            </form>
-            <p id="resultText">Результаты вычислений: </p>
+            <p>Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?</p>
+            <p>Условие: <input id="условие" name="task" type="text" value="Можно ли в квадратном зале площадью S поместить круглую сцену радиусом R так, чтобы от стены до сцены был проход не менее K?"</p>
+            <p>S: <input id="S" name="S" type="number" value="0"></p>
+            <p>R: <input id="R" name="R" type="number" value="0"></p>
+            <p>K: <input id="K" name="K" type="number" value="5"></p>
+
+            <p>Результат: <input name="result" value="не определён"></p>
+        
+            <p>Действие: <input id="send" type="submit" value="Отправить"></p>
+
         </td>
-    </tr>
+
+        </tr>
+        </form>
+
+         <p id="result">Результаты вычислений: </p>
+
+ <script src="algorythm.js"></script>
+
 </table>
+</body>
+
 
 <script>
 function verify() {

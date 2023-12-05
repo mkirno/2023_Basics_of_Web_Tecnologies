@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой Информационный Сайт</title>
+    <!-- Добавляем ссылку на файл Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+
         nav {
             background-color: #333;
             color: white;
             padding: 10px;
             text-align: center;
         }
+
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
         }
+
         .content {
             margin: 20px;
         }
+
         .graphic-link {
-            position: absolute;
-            top: 10px;
-            right: 300px; 
-            width: 10px;
-            height: 10px;
+            display: block;
+            margin: 20px auto;
+            /* Центрируем изображение на мобильных устройствах */
+            width: 100%;
+            max-width: 300px;
+            /* Ограничиваем максимальную ширину изображения */
         }
+
         .current-section {
             background-color: rgb(183, 0, 0);
         }
-        
+
+        @media screen and (max-width: 768px) {
+            /* Стили для маленьких экранов (планшеты и мобильные устройства) */
+            .graphic-link {
+                max-width: 100%;
+                /* Изображение занимает всю ширину экрана */
+            }
+        }
     </style>
+    <!-- Добавляем ссылку на файл Bootstrap JavaScript (Popper.js необходим для некоторых компонентов Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var navLinks = document.querySelectorAll("nav a");
             var sections = document.querySelectorAll("h2");
 
             function highlightCurrentSection() {
                 var scrollPosition = window.scrollY;
-                sections.forEach(function(section) {
+                sections.forEach(function (section) {
                     var sectionTop = section.offsetTop;
                     var sectionBottom = sectionTop + section.offsetHeight;
                     if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        navLinks.forEach(function(link) {
+                        navLinks.forEach(function (link) {
                             link.classList.remove("current-section");
                         });
                         var correspondingLink = document.querySelector('a[href="#' + section.id + '"]');
@@ -57,20 +77,51 @@
             }
 
             window.addEventListener("scroll", highlightCurrentSection);
+
+            // Получаем ссылку на начальную страницу (главную страницу)
+            var homeLink = document.querySelector('a[href="#home"]');
+
+            // Обработчик события клика на ссылке
+            homeLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                // Перенаправляем пользователя на начальную страницу
+                window.location.href = ".html";
+            });
         });
     </script>
 </head>
+
 <body>
-    <nav>
-        <a href="#home">Главная</a>
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#description">Описание сайта</a>
-        <a href="b_WEB.html" >Внешний сайт</a>
-        <a href="passport.html" target="_blank">Пасспорт</a>
-        <a href="algorithmic_task.html" target="_blank">Алгоритмическая задача</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#home">Главная</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#description">Описание сайта</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="b_WEB.html">Внешний сайт</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="passport.html" target="_blank">Пасспорт</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="algorithmic_task.html" target="_blank">Алгоритмическая задача</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-    
+
     <div class="content">
         <h1 id="home">Добро пожаловать на наш сайт!</h1>
         <p>Это главная страница нашего сайта. Здесь вы найдете всю необходимую информацию о нас и наших услугах.</p>
@@ -116,47 +167,14 @@
             <li>Пошив одежды на заказ</li>
             <li>Стоматологическая клиника</li>
             <li>Мойка автомобилий</li>
-
         </ul>
         <h2 id="description">Описание сайта</h2>
         <p>Здесь вы найдете подробное описание нашего сайта и всю информацию, которая может вас заинтересовать.</p>
     </div>
-    <a href="https://dzen.ru/video/watch/621a1597f8bf1248f2069abb?mt_link_id=kikkq1&utm_source=yandex&utm_medium=cpc&utm_campaign=SEARCH_Recipes&utm_content=pid_43754837365_cid_76500379_gid_5151777043_aid_13681818522_src_search_none&yclid=5794140964934909951" target="_blank" class="graphic-link">
+    <a href="https://dzen.ru/video/watch/621a1597f8bf1248f2069abb?mt_link_id=kikkq1&utm_source=yandex&utm_medium=cpc&utm_campaign=SEARCH_Recipes&utm_content=pid_43754837365_cid_76500379_gid_5151777043_aid_13681818522_src_search_none&yclid=5794140964934909951"
+        target="_blank" class="graphic-link">
         <img src="https://github.com/vmarshirov/g06u28/blob/main/images/1_2.png?raw=true" alt="Графическая гиперссылка">
     </a>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var navLinks = document.querySelectorAll("nav a");
-            var sections = document.querySelectorAll("h2");
+</body>
 
-            function highlightCurrentSection() {
-                var scrollPosition = window.scrollY;
-                sections.forEach(function(section) {
-                    var sectionTop = section.offsetTop;
-                    var sectionBottom = sectionTop + section.offsetHeight;
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        navLinks.forEach(function(link) {
-                            link.classList.remove("current-section");
-                        });
-                        var correspondingLink = document.querySelector('a[href="#' + section.id + '"]');
-                        correspondingLink.classList.add("current-section");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", highlightCurrentSection);
-
-            // Получаем ссылку на начальную страницу (главную страницу)
-            var homeLink = document.querySelector('a[href="#home"]');
-
-            // Обработчик события клика на ссылке
-            homeLink.addEventListener("click", function(event) {
-                event.preventDefault();
-                // Перенаправляем пользователя на начальную страницу
-                window.location.href = ".html";
-            });
-        });
-    </script>
-
-    </body>
-    </html>
+</html>
