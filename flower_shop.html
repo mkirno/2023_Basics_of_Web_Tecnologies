@@ -67,12 +67,13 @@
     <div class="container">
         <div class="card-body">
             <h5 class='card-title text-center'>Магазин</h5>
-            <form id="checkoutForm" action="https://ya.ru/" method="POST" target="_blank">
+            <form id="checkoutForm" action="#" method="POST" onsubmit="submitForm(event)">
                 <ul class="bg-light" id="node_for_insert">
                     <!-- Динамически генерируемые элементы списка будут добавлены сюда -->
                 </ul>
                 <input class="btn btn-primary" type="submit" value="В корзину">
             </form>
+            <div class="result" id="resultMessage"></div>
         </div>
     </div>
 
@@ -133,51 +134,77 @@
 
     // Функция для создания элементов списка на основе массива цветов
     function populateList() {
-        var dynamicList = document.getElementById("node_for_insert");
+            var dynamicList = document.getElementById("node_for_insert");
 
-        flowers.forEach(function (flower) {
-            var dynamicItem = document.createElement("li");
-            dynamicItem.style.width = "210px";
-            dynamicItem.className = "d-flex flex-column m-1 p-1 border bg-body";
+            flowers.forEach(function (flower) {
+                var dynamicItem = document.createElement("li");
+                dynamicItem.style.width = "210px";
+                dynamicItem.className = "d-flex flex-column m-1 p-1 border bg-body";
 
-            var dynamicImage = document.createElement("img");
-            dynamicImage.style.width = "100%";
-            dynamicImage.src = flower.image;
-            dynamicItem.appendChild(dynamicImage);
+                var dynamicImage = document.createElement("img");
+                dynamicImage.style.width = "100%";
+                dynamicImage.src = flower.image;
+                dynamicItem.appendChild(dynamicImage);
 
-            var dynamicTitle = document.createElement("h5");
-            dynamicTitle.className = "card-title";
-            dynamicTitle.textContent = flower.name;
-            dynamicItem.appendChild(dynamicTitle);
+                var dynamicTitle = document.createElement("h5");
+                dynamicTitle.className = "card-title";
+                dynamicTitle.textContent = flower.name;
+                dynamicItem.appendChild(dynamicTitle);
 
-            var dynamicDescription = document.createElement("p");
-            dynamicDescription.className = "card-text";
-            dynamicDescription.textContent = flower.description;
-            dynamicItem.appendChild(dynamicDescription);
+                var dynamicDescription = document.createElement("p");
+                dynamicDescription.className = "card-text";
+                dynamicDescription.textContent = flower.description;
+                dynamicItem.appendChild(dynamicDescription);
 
-            var dynamicText = document.createElement("p");
-            dynamicText.className = "card-text";
-            dynamicText.textContent = "Цена: " + flower.price + " р.";
-            dynamicItem.appendChild(dynamicText);
+                var dynamicText = document.createElement("p");
+                dynamicText.className = "card-text";
+                dynamicText.textContent = "Цена: " + flower.price + " р.";
+                dynamicItem.appendChild(dynamicText);
 
-            var dynamicInputHidden = document.createElement("input");
-            dynamicInputHidden.type = "hidden";
-            dynamicInputHidden.name = "vendor_code";
-            dynamicInputHidden.value = flower.name.toLowerCase(); 
-            dynamicItem.appendChild(dynamicInputHidden);
+                var dynamicInputHidden = document.createElement("input");
+                dynamicInputHidden.type = "hidden";
+                dynamicInputHidden.name = "vendor_code";
+                dynamicInputHidden.value = flower.name.toLowerCase();
+                dynamicItem.appendChild(dynamicInputHidden);
 
-            var dynamicOrderText = document.createElement("p");
-            dynamicOrderText.className = "card-text";
-            dynamicOrderText.innerHTML = "Заказ: <input class='w-25' type='number' name='amount' value='0' min='0'>";
-            dynamicItem.appendChild(dynamicOrderText);
+                var dynamicOrderText = document.createElement("p");
+                dynamicOrderText.className = "card-text";
+                dynamicOrderText.innerHTML = "Заказ: <input class='w-25' type='number' name='amount' value='0' min='0'>";
+                dynamicItem.appendChild(dynamicOrderText);
 
-            dynamicList.appendChild(dynamicItem);
-        });
-    }
+                dynamicList.appendChild(dynamicItem);
+            });
+        }
 
+        function submitForm(event) {
+            event.preventDefault();
 
-    populateList();
-</script>
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch("https://example.com/your-server-endpoint", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Обработка успешного ответа от сервера
+                var resultMessage = document.getElementById("resultMessage");
+                resultMessage.textContent = "Заказ успешно отправлен!";
+                resultMessage.style.color = "green";
+                resultMessage.style.display = "block";
+            })
+            .catch(error => {
+                // Обработка ошибок при отправке запроса
+                var resultMessage = document.getElementById("resultMessage");
+                resultMessage.textContent = "Произошла ошибка при отправке заказа.";
+                resultMessage.style.color = "red";
+                resultMessage.style.display = "block";
+            });
+        }
+
+        populateList();
+    </script>
 
 
     <!-- Bootstrap JS (Popper.js and Bootstrap JS) -->
