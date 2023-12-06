@@ -7,6 +7,26 @@
     <title>Мой Информационный Сайт</title>
     <!-- Добавляем ссылку на файл Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Проверяем поддержку геолокации в браузере
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // Получаем координаты пользователя
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Отображаем координаты на странице
+                    var locationElement = document.getElementById("location");
+                    locationElement.textContent = "Ваше текущее местоположение: " + latitude + ", " + longitude;
+                }, function (error) {
+                    console.error("Ошибка получения геолокации: ", error.message);
+                });
+            } else {
+                console.error("Геолокация не поддерживается вашим браузером.");
+            }
+        });
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -176,5 +196,16 @@
         <img src="https://github.com/vmarshirov/g06u28/blob/main/images/1_2.png?raw=true" alt="Графическая гиперссылка">
     </a>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var homeLink = document.querySelector('a[href="#home"]');
+
+        homeLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            // Перезагружаем текущую страницу
+            window.location.reload();
+        });
+    });
+</script>
 
 </html>
